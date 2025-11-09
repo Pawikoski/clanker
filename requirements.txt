@@ -1,0 +1,5 @@
+python-telegram-bot==22.5
+python-dotenv==1.2.1
+loguru==0.7.3
+openai==2.6.1
+PyYAML==6.0.1
