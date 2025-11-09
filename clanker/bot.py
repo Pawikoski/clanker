@@ -207,6 +207,9 @@ Use `/reload_prompts` to apply changes without restarting.
     ) -> bool:
         """Determine if bot should respond as conversation continuation"""
         if settings.ANSWER_ON_MENTIONS_ONLY:
+            logger.info(
+                "Skipping continuation response due to ANSWER_ON_MENTIONS_ONLY setting"
+            )
             return False
         if not self.ai_client or not self.active_conversations.get(topic_id, False):
             return False
@@ -271,9 +274,12 @@ Odpowiedz TYLKO: TAK lub NIE"""
     async def _should_join_conversation(
         self, message_text: str, user_name: str, context_messages: list, topic_id: str
     ) -> bool:
-        if settings.ANSWER_ON_MENTIONS_ONLY:
-            return False
         """Determine if bot should join conversation organically"""
+        if settings.ANSWER_ON_MENTIONS_ONLY:
+            logger.info(
+                "Skipping organic join detection due to ANSWER_ON_MENTIONS_ONLY setting"
+            )
+            return False
         if not self.ai_client or self.active_conversations.get(topic_id, False):
             return False
 
