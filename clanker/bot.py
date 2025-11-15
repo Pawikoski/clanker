@@ -452,8 +452,7 @@ When replying, match {current_user}’s style and the context of the conversatio
             #     api_params["presence_penalty"] = 0.1  # Encourage variety
             #     api_params["frequency_penalty"] = 0.1  # Reduce repetition
 
-            # Set timeout based on provider (Grok reasoning models are slower)
-            timeout_seconds = 60 if settings.AI_PROVIDER == "grok" else 15
+            timeout_seconds = 60
 
             try:
                 # Use asyncio.wait_for to add timeout
