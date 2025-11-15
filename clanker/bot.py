@@ -443,14 +443,14 @@ When replying, match {current_user}’s style and the context of the conversatio
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
-                "max_completion_tokens": 400,
+                "max_completion_tokens": 1500,
                 "temperature": 0.8,  # Higher temperature for more personality
             }
 
             # Add OpenAI-specific parameters only for GPT
-            if settings.AI_PROVIDER != "grok":
-                api_params["presence_penalty"] = 0.1  # Encourage variety
-                api_params["frequency_penalty"] = 0.1  # Reduce repetition
+            # if settings.AI_PROVIDER != "grok":
+            #     api_params["presence_penalty"] = 0.1  # Encourage variety
+            #     api_params["frequency_penalty"] = 0.1  # Reduce repetition
 
             # Set timeout based on provider (Grok reasoning models are slower)
             timeout_seconds = 60 if settings.AI_PROVIDER == "grok" else 15
