@@ -84,7 +84,7 @@ class Clanker:
                     "grok-4-fast-reasoning"  # Full reasoning model for main responses
                 )
         else:
-            return "gpt-4o-mini" if not fast_mode else "gpt-3.5-turbo"
+            return "gpt-5.1" if not fast_mode else "gpt-4.1-mini"
 
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Start command handler"""
